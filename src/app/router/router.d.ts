@@ -1,6 +1,8 @@
+import React from "react";
+
 export type Route = {
   path: string;
-  element: React.FC;
+  element: React.ReactNode;
 };
 
 export type Routes = {
