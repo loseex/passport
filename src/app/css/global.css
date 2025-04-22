@@ -1,0 +1,25 @@
+@layer base {
+  :root {
+    --background: #ffffff;
+    --foreground: #f6f6f6;
+    --text-primary: #191919;
+    color-scheme: light;
+  }
+
+  *,
+  *::before,
+  *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    text-rendering: optimizeLegibility;
+  }
+
+  html,
+  body,
+  #root {
+    background-color: var(--foreground) !important;
+    color: var(--text-primary) !important;
+    overflow-x: hidden;
+  }
+}
