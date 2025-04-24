@@ -36,7 +36,7 @@ export const CardFooter: React.FC = (): React.ReactElement => {
     <p className="text-sm text-muted-foreground mt-5">
       Есть проблемы?{" "}
       <a
-        className="text-black font-medium hover:underline"
+        className="text-black font-medium hover:underline hover:cursor-pointer"
         href={import.meta.env.SUPPORT_URL}
       >
         Тех. Поддержка
