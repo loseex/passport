@@ -1,11 +1,17 @@
 import ReactDOM from "react-dom/client";
 import { ICore } from "./core.d";
 import { loadApplication, loadNotAvailable } from "./utils/__codegen__module";
+import { EventEmitter } from "./event-emitter";
+import { HealthAPI } from "./api/health";
 
 export class Fitter {
   private node: ICore.Node = () =>
     document.getElementById("root") as HTMLDivElement;
   private react_dom: ICore.ReactDOM = null;
+
+  private eventEmitter: EventEmitter = new EventEmitter();
+
+  private healthAPI = new HealthAPI();
 
   private applications: Record<
     ICore.Applications,
@@ -41,10 +47,22 @@ export class Fitter {
     else console.warn("Core::Fitter::ReactDOM is not loaded.");
   }
 
+  private subscribe() {
+    this.eventEmitter.on(ICore.EventEmitter.Events.MOUNT, (key) =>
+      this.lazyLoader(key)
+    );
+  }
+
   bootstrap(): void {
     this.react_dom = ReactDOM.createRoot(this.node());
+    this.subscribe();
 
-    this.lazyLoader(ICore.Applications.APPLICATION);
+    this.healthAPI.check(false);
+
+    this.eventEmitter.emit(
+      ICore.EventEmitter.Events.MOUNT,
+      ICore.Applications.APPLICATION
+    );
 
     return void 0;
   }

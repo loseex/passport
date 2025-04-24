@@ -9,4 +9,21 @@ export namespace ICore {
     APPLICATION = "application",
     CRASH = "crash",
   }
+
+  export namespace EventEmitter {
+    export type EventCallback = (...args: any[]) => void;
+
+    export type IEvent = {
+      once: boolean;
+      listener: EventCallback;
+    };
+
+    export enum Events {
+      MOUNT = "fitter::mount",
+    }
+
+    export interface EventsList {
+      [Events.MOUNT]: IEvent[];
+    }
+  }
 }
