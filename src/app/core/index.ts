@@ -1,4 +1,5 @@
 import { Fitter } from "./fitter";
+import { UrlQueryBuilder } from "./utils/url-builder";
 
 class Core {
   private fitter: Fitter = new Fitter();
@@ -16,6 +17,15 @@ class Core {
     } catch (e) {
       throw new Error(e as string);
     }
+  }
+
+  /**
+   * Перенаправление пользователя на другой url.
+   * @see UrlQueryBuilder
+   */
+  static redirect(url: string, options: Record<string, string>): void {
+    const _u = UrlQueryBuilder.format(url, options);
+    return window.location.replace(_u);
   }
 
   /**
