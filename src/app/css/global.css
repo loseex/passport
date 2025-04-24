@@ -5,6 +5,7 @@
   :root {
     --background: #ffffff;
     --foreground: #fcfcfc;
+    --foreground-2: #efefef;
     --text-primary: #191919;
     color-scheme: light;
   }
