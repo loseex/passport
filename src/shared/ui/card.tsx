@@ -37,7 +37,7 @@ export const CardFooter: React.FC = (): React.ReactElement => {
       Есть проблемы?{" "}
       <a
         className="text-black font-medium hover:underline"
-        href="https://t.me/loseex"
+        href={import.meta.env.SUPPORT_URL}
       >
         Тех. Поддержка
       </a>
