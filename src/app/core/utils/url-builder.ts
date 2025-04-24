@@ -5,8 +5,8 @@ export class UrlQueryBuilder {
    * @param options Параметры в виде объекта.
    *
    * @example
-   * URLBuilder.format("https://localhost:8080", { id: '17484842' })
    * // Вернет https://localhost:8080?id=17484842
+   * UrlQueryBuilder.format("https://localhost:8080", { id: '17484842' })
    */
   static format(url: string, options?: Record<string, string>): string {
     return url + (options ? this.split(options) : "");
