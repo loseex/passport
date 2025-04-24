@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import * as LabelPrimitive from "@radix-ui/react-label"
+import * as React from "react";
+import * as LabelPrimitive from "@radix-ui/react-label";
 
-import { cn } from "@/app/lib/utils"
+import { cn } from "@/app/lib/utils";
 
 function Label({
   className,
@@ -13,12 +13,12 @@ function Label({
     <LabelPrimitive.Root
       data-slot="label"
       className={cn(
-        "shadcnflex shadcnitems-center shadcngap-2 shadcntext-sm shadcnleading-none shadcnfont-medium shadcnselect-none group-data-[disabled=true]:shadcnpointer-events-none group-data-[disabled=true]:shadcnopacity-50 peer-disabled:shadcncursor-not-allowed peer-disabled:shadcnopacity-50",
+        "flex items-center gap-2 text-sm leading-none font-medium select-none group-data-[disabled=true]:pointer-events-none group-data-[disabled=true]:opacity-50 peer-disabled:cursor-not-allowed peer-disabled:opacity-50",
         className
       )}
       {...props}
     />
-  )
+  );
 }
 
-export { Label }
+export { Label };
